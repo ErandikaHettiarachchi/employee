@@ -1,28 +1,15 @@
 <?php include_once("employeeComman/head.php")?>
-<?php include_once ("employeeComman/header.php")?>
+<?php include_once("employeeComman/header.php")?>
 <?php include_once("employeeComman/slider.php")?>
 <?php include_once("employeeComman/script.php")?>
 <?php include_once("employeeComman/connection.php")?>
  
 <?php 
     
-    $sql = "SELECT * FROM employee_leave WHERE id='3'";
+    $sql = "SELECT * FROM emergencydetails WHERE id=1";
     $row = $conn->query($sql)->fetch_array();
 
-    if(isset($_POST['leavBTN'])) {
-        //$employeeId = $_POST['id'];
-        $startdate = date("Y-m-d", strtotime($_POST['startdate']));
-        $enddate =   date("Y-m-d", strtotime($_POST['enddate']));
-        $reason = $_POST['reason'];
-        $sql = "INSERT INTO employee_leave VALUES (null,'$startdate','$enddate','$reason',0)";
-        // $sql="INSERT INTO employee_leave VALUES (2,'2012-02-12','2012-02-12','2012-02-12',0)";
 
-        if (mysqli_query($conn, $sql)) {
-            echo '<script> alert("Saved!")</script>';
-        } else {
-            echo "Error: ";
-        }
-    }
 ?>
 
 
@@ -59,19 +46,19 @@
                             <div class="col-md-3">
 
                                 <div class="form-group">
-                                    <label>Ariyarathne Hettirachchi</label>
+                                    <label><?php echo $row['cntperson'];?></label>
                                 </div>
                                 <div class="form-group">
-                                    <label>No7/3,kohuwala,colombo</label>
+                                    <label><?php echo $row['address'];?></label>
                                 </div>
                                 <div class="form-group">
-                                    <label>0717275722</label>
+                                    <label><?php echo $row['contact'];?></label>
                                 </div>
                                 <div class="form-group">
-                                    <label>A+</label>
+                                    <label><?php echo $row['blood'];?></label>
                                 </div>
                                 <div class="form-group">
-                                    <label>Sinusitis</label>
+                                    <label><?php echo $row['allergic'];?></label>
                                 </div>
                             </div>
 

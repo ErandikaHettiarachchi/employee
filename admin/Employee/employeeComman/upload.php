@@ -31,7 +31,7 @@ if(isset($_POST['submit'])) {
 
             if ($didUpload) {
                 echo '<script language="javascript">';
-                echo 'alert("message successfully sent")';
+                echo 'alert("images successfully uploaded")';
                 echo '</script>';
                 // echo "The file " . basename($fileName) . " has been uploaded";
             } else {
