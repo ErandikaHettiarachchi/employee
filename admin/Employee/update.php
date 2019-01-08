@@ -42,6 +42,7 @@
                                         <input type="file" name="myfile" id="fileToUpload">
                                         <input type="submit" name="submit" value="Upload File Now" >
                                     </div>
+                                    <img src="employeeComman/upload/1.jpg" style="width:100px;height:120px">
                                 <!-- </div> -->
                                 <!-- <hr> -->
                                 <div class="row">
@@ -139,7 +140,7 @@ if(isset($_POST['submit'])) {
 
             if ($didUpload) {
                 echo '<script language="javascript" >';
-                echo 'alert("message successfully uploaded")';
+                echo 'alert("image successfully uploaded")';
                 echo '</script>';
                 // echo "The file " . basename($fileName) . " has been uploaded";
             } else {
