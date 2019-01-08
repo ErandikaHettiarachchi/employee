@@ -4,11 +4,24 @@
 <?php include_once("employeeComman/script.php")?>
 <?php include("employeeComman/connection.php") ?>
 <!---->
-<?php
-$current_user = "erandishanu@gmail.com";
-$sql = "SELECT * FROM employee WHERE email='$current_user'";
-$row = $conn->query($sql)->fetch_array();
 
+<?php 
+    if(isset($_POST['saveBtn'])) {
+
+        $cperson = $_POST['cperson'];
+        $address = $_POST['address'];
+        $contact = $_POST['contact'];
+        $blood = $_POST['blood'];
+        $aleg = $_POST['aleg'];
+        
+        $sql = "INSERT INTO emergencydetails VALUES (1,'$cperson','$address','$contact','$blood','$aleg')";
+//('id', 'cntperson', 'address', 'contact', 'blood', 'allergic') 
+        if (mysqli_query($conn, $sql)) {
+            echo '<script> alert("Saved!")</script>';
+        } else {
+            echo "Error: ";
+        }
+    }
 ?>
 
 
@@ -56,22 +69,26 @@ $row = $conn->query($sql)->fetch_array();
                                     <div ><!--hello-->
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <input />
+                                                <input name="cperson">
                                             </div>
                                             <div class="form-group">
-                                                <input />
+                                                <input name = "address">
                                             </div>
                                             <div class="form-group">
-                                                <input />
+                                                <input name="contact">
                                             </div>
                                             <div class="form-group">
-                                                <input />
+                                                <input name ="blood">
                                             </div>
                                             <div class="form-group">
-                                                <input Allergies:/>
+                                                <input name="aleg">
                                             </div>
                                         </div>
 
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-8"></div>
+                                        <button style="width:150px" name="saveBtn" type="post" class="btn btn-primary">Save</button>
                                     </div>
                                 </div>
                             </div><!-- /.box-body -->
