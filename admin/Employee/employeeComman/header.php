@@ -1,3 +1,4 @@
+<?php session_start();?>
 <body class="hold-transition skin-blue sidebar-mini">
 <header class="main-header">
 

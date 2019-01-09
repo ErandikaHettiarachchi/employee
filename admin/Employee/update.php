@@ -5,16 +5,20 @@
 <?php include("employeeComman/connection.php") ?>
 <!---->
 
-<?php 
-    if(isset($_POST['saveBtn'])) {
+<script>session_start();</script>
 
+<?php 
+
+    if(isset($_POST['saveBtn'])) {
+        $id=intval($_SESSION["id"]);
         $cperson = $_POST['cperson'];
         $address = $_POST['address'];
         $contact = $_POST['contact'];
         $blood = $_POST['blood'];
         $aleg = $_POST['aleg'];
         
-        $sql = "INSERT INTO emergencydetails VALUES (1,'$cperson','$address','$contact','$blood','$aleg')";
+        
+        $sql = "INSERT INTO emergencydetails VALUES ($id,'$cperson','$address','$contact','$blood','$aleg')";
 //('id', 'cntperson', 'address', 'contact', 'blood', 'allergic') 
         if (mysqli_query($conn, $sql)) {
             echo '<script> alert("Saved!")</script>';
@@ -154,7 +158,6 @@
 
     }
 ?>
-
 
 
 
