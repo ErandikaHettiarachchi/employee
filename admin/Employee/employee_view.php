@@ -4,9 +4,12 @@
 <?php include_once("employeeComman/script.php")?>
 <?php include("employeeComman/connection.php") ?>
 <!---->
+
+<script>session_start();</script>
+
 <?php
-    $current_user = "erandishanu@gmail.com";
-    $sql = "SELECT * FROM employee WHERE email='$current_user'";
+    $id=intval($_SESSION["id"]);
+    $sql = "SELECT * FROM employee WHERE id=$id";
     $row = $conn->query($sql)->fetch_array();
 
 ?>
