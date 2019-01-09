@@ -3,21 +3,23 @@
 <?php include_once("employeeComman/slider.php")?>
 <?php include_once("employeeComman/script.php")?>
 <?php include_once("employeeComman/connection.php")?>
- 
+<script>session_start();</script>
 <?php 
     
-    $sql = "SELECT * FROM employee_leave WHERE id='3'";
-    $row = $conn->query($sql)->fetch_array();
-                                                                                // select query ->method call on the object
+
+
+    // $sql = "SELECT * FROM employee_leave WHERE id='3'";
+    // $row = $conn->query($sql)->fetch_array();
     if(isset($_POST['leavBTN'])) {
         //$employeeId = $_POST['id'];
+        $id=intval($_SESSION["id"]);
         $startdate = date("Y-m-d", strtotime($_POST['startdate']));
         $enddate =  date("Y-m-d", strtotime($_POST['enddate']));
         $strttime = date('H:i:s'),strtotime($_POST['strttime']));
         $endtime = date('H:i:s'),strtotime($POST['endtime']));
         $reason = $_POST['reason'];
-        $sql = "INSERT INTO employee_leave VALUES (null,'$startdate','$enddate','$reason',0)";         // insert query
-        // $sql="INSERT INTO employee_leave VALUES (2,'2012-02-12','2012-02-12','2012-02-12',0)";
+
+        $sql = "INSERT INTO employee_leave VALUES ($id,'$startdate','$enddate','$reason',0)";
 
         if (mysqli_query($conn, $sql)) {
             echo '<script> alert("Saved!")</script>';           

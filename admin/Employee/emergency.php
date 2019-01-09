@@ -4,9 +4,11 @@
 <?php include_once("employeeComman/script.php")?>
 <?php include_once("employeeComman/connection.php")?>
  
+<script>session_start();</script>
+
 <?php 
-    
-    $sql = "SELECT * FROM emergencydetails WHERE id=1";
+    $id=intval($_SESSION["id"]);
+    $sql = "SELECT * FROM emergencydetails WHERE id=$id";
     $row = $conn->query($sql)->fetch_array();
 
 
